@@ -6,11 +6,11 @@ Its use is simple so it is **NOT** recommended to use it for large projects unle
 
 ## Getting starting 🌆
 
-To use it, copy and paste the content of the file from [here]().
+To use it, copy and paste the content of the file from [here](https://raw.githubusercontent.com/Coldine/RightClick/main/right-click.js).
 
 ## Use 🌇
 
-To see an example visit the example [file]().
+To see an example visit the example [file](https://github.com/Coldine/RightClick/blob/main/example.html).
 
 
 ### setGlobalSettings( Object: _Required_ ) :_Optional_
