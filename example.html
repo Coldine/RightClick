@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Custom Menu</title>
+    <style media="all">
+    @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+    body {
+      font-family: 'Ubuntu', sans-serif;
+      font-weight: lighter;
+      text-align: center;
+      margin: 0;
+      padding: 0 5vw;
+      background: #E3F2FD;
+    }
+    .main{
+      display: flex;
+      flex-direction: column;
+      align-content: center;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .wrapper {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      padding: 0 20px;
+      width: 100%;
+    }
+    .wrapper > div{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 60vh;
+      align-content: center;
+      justify-content: center;
+      padding: 10px;
+    }
+    .red{ background: #ff000020; }
+    .green{ background: #00ff0020; }
+    .blue{ background: #0000ff20; }
+    .w-him{
+      width: 80%;
+      height: 20px;
+      margin: 20px 0;
+    }
+    .mini-blue-ball{
+      display: inline-block;
+      border-radius: 50%;
+      background: #4FC3F7;
+      margin: 0 10px;
+      width: 20px;
+      height: 20px;
+      position: relative;
+    }
+    .box-l{
+      width: 90%;
+      height: 200px;
+      margin: 30px 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+    }
+    .box-l > div{
+      background: #00000040;
+      height: 20px;
+      border-radius: 20px;
+      width: 90%;
+    }
+    div[class^="dif-"]{
+      border: #000 solid 5px;
+      width: 150px;
+      height: 150px;
+      background: #616161;
+    }
+    .dif-a{ border-radius: 50%; }
+    .dif-b{ border-radius: 100% 0; }
+    .dif-c{ border-radius: 20px; }
+    </style>
+  </head>
+  
+  <body>
+    <div class="main">
+      <div class="wrapper">
+        <div title="I'm .red" class="red">
+          <div class="box-l">
+            <div title="I'm .box-l > div"> </div>
+            <div title="I'm .box-l > div"> </div>
+            <div title="I'm .box-l > div"> </div>
+            <div title="I'm .box-l > div"> </div>
+           </div>
+           <div title="I'm .dif-a" class="dif-a"> </div>
+          <div class="w-him">
+            <div title="I'm .mini-blue-ball" class="mini-blue-ball"> </div>
+            <div title="I'm .mini-blue-ball" class="mini-blue-ball"> </div>
+            <div title="I'm .mini-blue-ball" class="mini-blue-ball"> </div>
+          </div>
+        </div>
+        
+        <div title="I'm .blue" class="blue">
+          <div class="box-l">
+            <div title="I'm .box-l > div"> </div>
+            <div title="I'm .box-l > div"> </div>
+            <div title="I'm .box-l > div"> </div>
+            <div title="I'm .box-l > div"> </div>
+           </div>
+           <div title="I'm .dif-b" class="dif-b"> </div>
+          <div class="w-him">
+            <div title="I'm .mini-blue-ball" class="mini-blue-ball"> </div>
+            <div title="I'm .mini-blue-ball" class="mini-blue-ball"> </div>
+            <div title="I'm .mini-blue-ball" class="mini-blue-ball"> </div>
+          </div>
+        </div>
+
+        <div title="I'm .green" class="green">
+          <div class="box-l">
+            <div title="I'm .box-l > div"> </div>
+            <div title="I'm .box-l > div"> </div>
+            <div title="I'm .box-l > div"> </div>
+            <div title="I'm .box-l > div"> </div>
+           </div>
+           <div title="I'm .dif-c" class="dif-c"> </div>
+          <div class="w-him">
+            <div title="I'm .mini-blue-ball" class="mini-blue-ball"> </div>
+            <div title="I'm .mini-blue-ball" class="mini-blue-ball"> </div>
+            <div title="I'm .mini-blue-ball" class="mini-blue-ball"> </div>
+          </div>
+        </div>
+    </div>
+  </div>
+    
+    <script src="right-click.js"></script>
+    <script>
+    // 
+/*************************** Setting global Options *************************/      
+    RightClick.setGlobalSettings({ 
+      color:'#000',
+      background: '#fff',
+      hover: '#0000ff40'
+    })
+    // prevent get the default context menu
+    RightClick.unClick(preventDefault = true)
+
+/************************** Makin' a new instance ****************************/      
+
+    // Making a new context menu
+    let rightClick = new RightClick()
+
+    // Making the options to the new context menu
+    rightClick.setOption(
+      { id: 'mini-blue-ball-1',
+        text: '1° option to .mini-blue-ball',
+        func: () => { alert('.mini-blue-ball has been pressed with option 1')} 
+      },
+      { id: 'mini-blue-ball-2',
+        text: '2° option to .mini-blue-ball',
+        func: () => { alert('.mini-blue-ball has been pressed with option 2')} 
+      },
+      { id: 'mini-blue-ball-3',
+        text: '3° option to .mini-blue-ball',
+        func: () => { alert('.mini-blue-ball has been pressed with option 3')} 
+      } )
+
+    // Setting the elements that will display the context menu
+      // in this case, all the elements with class mini-blue-ball
+      rightClick.listen('.mini-blue-ball', all = true)
+      
+/************************** Makin' a new instance ****************************/      
+      
+      // Making a new context menu
+      let rightClick2 = new RightClick()
+
+      // Making the options to the new context menu
+      rightClick2.setOption(
+        { id: 'red-1',
+          text: '1° option to .red',
+          func: () => { alert('.red has been pressed with option 1')} 
+        },
+        { id: 'red-2',
+          text: '2° option to .red',
+          func: () => { alert('.red has been pressed with option 2')} 
+        } )
+
+      // Setting the elements that will display the context menu
+        // in this case, the first the elements with class red
+      rightClick2.listen('.red')
+    
+/************************** Makin' a new instance ****************************/      
+
+      // Making a new context menu
+      let rightClick3 = new RightClick()
+      
+      // Making the options to the new context menu
+      rightClick3.setOption(
+        { id: 'dif',
+          text: 'Option to a, b or c',
+          func: () => { alert('a, b or c has been pressed')} 
+        } )
+        // The alements I want to select
+        let a = document.querySelector('.dif-a')
+        let b = document.querySelector('.dif-b')
+        let c = document.querySelector('.dif-c')
+
+        // Setting the elements that will display the context menu
+          // in this case, all the DOM elements a, b or c
+      rightClick3.listen([a, b, c])
+    
+    </script>
+  </body>
+</html>
